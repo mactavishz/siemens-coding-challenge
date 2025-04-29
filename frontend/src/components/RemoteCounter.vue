@@ -1,5 +1,6 @@
 <script lang="ts">
 import { ref } from 'vue'
+import { io } from 'socket.io-client'
 export default {
   setup() {
     const count = ref(0)
@@ -8,6 +9,14 @@ export default {
     function increment() {
       count.value++
     }
+
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
+    const socket = io(backendUrl, {
+      withCredentials: true,
+    })
+    socket.on('connect', () => {
+      console.log('Connected to server')
+    })
 
     return {
       count,
