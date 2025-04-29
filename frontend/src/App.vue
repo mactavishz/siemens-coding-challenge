@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Greeting from './components/Greeting.vue'
+import RemoteCounter from './components/RemoteCounter.vue'
 </script>
 
 <template>
@@ -8,12 +8,12 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <Greeting msg="A Real-Time Counter" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <RemoteCounter />
   </main>
 </template>
 
@@ -25,6 +25,10 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+main {
+  margin-top: 2rem;
 }
 
 @media (min-width: 1024px) {
@@ -42,6 +46,10 @@ header {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+  }
+
+  main {
+    margin-top: 0;
   }
 }
 </style>
