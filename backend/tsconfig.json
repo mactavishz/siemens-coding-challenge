@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2022",
     "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "types": [
       "node"
     ],
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
-    "outDir": "./dist"
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "resolveJsonModule": true
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
