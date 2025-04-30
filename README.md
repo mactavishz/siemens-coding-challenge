@@ -1,5 +1,7 @@
 # Siemens Coding Challenge
 
+[![CI](https://github.com/mactavishz/siemens-coding-challenge/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mactavishz/siemens-coding-challenge/actions/workflows/ci.yml)
+
 This repository contains a demo application for the Siemens coding challenge. The application is a simple Web application consisting of a frontend application and a backend server.
 
 ## Architecture Overview
