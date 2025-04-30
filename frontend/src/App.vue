@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Greeting from './components/Greeting.vue'
+import WelcomeMessage from './components/WelcomeMessage.vue'
 import RemoteCounter from './components/RemoteCounter.vue'
 </script>
 
@@ -8,7 +8,7 @@ import RemoteCounter from './components/RemoteCounter.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <Greeting msg="A Real-Time Counter" />
+      <WelcomeMessage msg="A Real-Time Counter" />
     </div>
   </header>
 

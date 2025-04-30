@@ -3,13 +3,18 @@ import { mount, flushPromises } from '@vue/test-utils'
 import RemoteCounter from '../RemoteCounter.vue'
 import apis from '@/apis'
 
-let socketOnHandlers: Record<string, Function> = {}
+// Define proper types for socket handlers
+type CounterUpdateHandler = (value: number) => void
+type SocketConnectedHandler = () => void
+type SocketEventHandler = Record<string, CounterUpdateHandler | SocketConnectedHandler>
+
+let socketOnHandlers: SocketEventHandler = {}
 
 // Mock the socket.io-client
 vi.mock('socket.io-client', () => {
   return {
     io: vi.fn(() => ({
-      on: vi.fn((event: string, handler: Function) => {
+      on: vi.fn((event: string, handler: CounterUpdateHandler | SocketConnectedHandler) => {
         socketOnHandlers[event] = handler
       }),
     })),
@@ -76,9 +81,6 @@ describe('RemoteCounter', () => {
   })
 
   it('updates counter when socket emits counterUpdate', async () => {
-    // Get the socket mock
-    const socketMock = (await import('socket.io-client')).io()
-
     const wrapper = mount(RemoteCounter)
     await flushPromises()
 
