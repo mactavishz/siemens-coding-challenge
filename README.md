@@ -67,11 +67,12 @@ This project uses a monorepo structure with pnpm workspaces:
 # Install all dependencies from the project root
 pnpm install
 
-# Install backend dependencies
-cd ./backend && pnpm install
+# if you need to add dependencies for backend or frontend separately
+cd ./backend
+pnpm add <package-name> # for backend
 
-# Install frontend dependencies
-cd ./frontend && pnpm install
+cd ./frontend
+pnpm add <package-name> # for frontend
 ```
 
 ### Environment Configuration
@@ -178,7 +179,6 @@ cd ./frontend
 pnpm test:unit       # Run all unit tests
 pnpm test:watch      # Run tests in watch mode
 ```
-
 
 ## Code Quality
 
