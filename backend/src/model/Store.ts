@@ -49,6 +49,10 @@ export class Counter extends Store {
     public getCount(): number {
         return this.get('count');
     }
+    
+    public reset(): void {
+        this.set('count', 0);
+    }
 }
 
 export interface Store {
