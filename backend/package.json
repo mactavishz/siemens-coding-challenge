@@ -4,8 +4,8 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "start": "node ./dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "lint": "eslint --config eslint.config.ts .",
     "format": "prettier --write \"src/**/*.ts\"",

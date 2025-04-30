@@ -8,13 +8,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "node"
+      "node",
+      "vitest/globals"
     ],
     "rootDir": ".",
-    "outDir": "./dist",
-    "sourceMap": true,
     "resolveJsonModule": true
   },
   "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
