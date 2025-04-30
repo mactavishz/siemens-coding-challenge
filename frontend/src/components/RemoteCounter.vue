@@ -56,7 +56,7 @@ export default {
       count,
       error,
       onClick,
-      onClearErr
+      onClearErr,
     }
   },
 }

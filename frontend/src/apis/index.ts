@@ -20,7 +20,7 @@ async function incrementCounter(): Promise<void> {
 
 export default {
   getCounter,
-  incrementCounter
+  incrementCounter,
 }
 
 export interface CounterApi {
