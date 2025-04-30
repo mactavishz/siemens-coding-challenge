@@ -49,6 +49,7 @@ app.post('/counter/increment', (req, res) => {
     res.json({
         message: 'Counter incremented',
     })
+    // broadcast the updated counter value to all clients in the room
     io.to(SOCKET_ROOM_NAME).emit('counterUpdate', counter.getCount());
 });
 
