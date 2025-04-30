@@ -28,7 +28,7 @@ export enum ActionType {
 }
 
 export interface HistoryItem {
-    timestamp: Date;
+    timestamp: number;
     action: ActionType;
     updatedValue: number;
 }

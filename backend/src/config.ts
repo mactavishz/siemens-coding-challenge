@@ -5,15 +5,14 @@ dotenv.config();
 interface Config {
   port: number;
   nodeEnv: string;
-  sessionSecret: string;
-  frontendUrl: string;
+  frontendUrls: string[];
 }
 
 const config: Config = {
   port: Number(process.env.PORT) || 3000,
   nodeEnv: process.env.NODE_ENV || 'development',
-  sessionSecret: process.env.SESSION_SECRET || 'default',
-  frontendUrl: process.env.FRONTEND_URL || 'http://localhost:5173'
+  frontendUrls: process.env.FRONTEND_URLS
+    ? process.env.FRONTEND_URLS.split(',') : ['http://localhost:5173'],
 };
 
 export default config;

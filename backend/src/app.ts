@@ -1,45 +1,55 @@
 import express from 'express';
 import { Server } from "socket.io";
 import http from 'http';
-import sessions from 'express-session';
 import cors from 'cors';
 import config from './config';
+import { Counter } from './model/Store';
+import { History, ActionType } from './model/History';
 
 const app = express();
-let clients = new Set();
+const counter = Counter.getInstance();
+const counterUpdateHistory = new History(5);
+const SOCKET_ROOM_NAME = 'counter';
 
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: config.frontendUrl,
+        origin: config.frontendUrls,
         methods: ["GET", "POST"],
         credentials: true
     }
 });
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    clients.add(socket);
-
+    socket.join(SOCKET_ROOM_NAME);
     socket.on('disconnect', () => {
-        console.log('user disconnected');
-        clients.delete(socket);
+        socket.leave(SOCKET_ROOM_NAME);
     });
 });
 
 app.use(cors({
-    origin: config.frontendUrl,
+    origin: config.frontendUrls,
     credentials: true
 }));
 app.use(express.json());
-app.use(sessions({
-    secret: config.sessionSecret,
-    cookie: { secure: true }
-}))
 
-app.get('/', (req, res) => {
-    res.send('Hello World, Node.js!');
+app.get('/counter/get', (req, res) => {
+    res.json({
+        value: counter.getCount()
+    });
 });
 
+app.post('/counter/increment', (req, res) => {
+    counter.increment();
+    counterUpdateHistory.add({
+        timestamp: Date.now(),
+        action: ActionType.INC,
+        updatedValue: counter.getCount()
+    })
+    res.json({
+        message: 'Counter incremented',
+    })
+    io.to(SOCKET_ROOM_NAME).emit('counterUpdate', counter.getCount());
+});
 
 export default server;
