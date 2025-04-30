@@ -102,14 +102,14 @@ pnpm add <package-name> # for frontend
 1. Start the backend server:
 
    ```bash
-   cd backend
+   cd ./backend
    pnpm dev
    ```
 
 2. Start the frontend development server (in a separate terminal):
 
    ```bash
-   cd frontend
+   cd ./frontend
    pnpm dev
    ```
 
@@ -120,21 +120,21 @@ pnpm add <package-name> # for frontend
 1. Build the frontend:
 
    ```bash
-   cd frontend
+   cd ./frontend
    pnpm build
    ```
 
 2. Build the backend:
 
    ```bash
-   cd backend
+   cd ./backend
    pnpm build
    ```
 
 3. Start the backend server:
 
    ```bash
-   cd backend
+   cd ./backend
    pnpm start
    ```
 
