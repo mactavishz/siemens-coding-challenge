@@ -211,3 +211,7 @@ pnpm build
 cd ./frontend
 pnpm type-check
 ```
+
+### CI/CD
+
+The project uses GitHub Actions for CI/CD. The workflow is defined in `.github/workflows/ci.yml`.
