@@ -9,6 +9,7 @@
     "prepare": "cypress install",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "test:unit": "cd ./frontend && npm run test:unit && cd ../backend && npm run test:unit",
     "test:e2e": "start-server-and-test start:all http://localhost:5173 cypress:run",
     "test:e2e:open": "start-server-and-test start:all http://localhost:5173 cypress:open"
   },
