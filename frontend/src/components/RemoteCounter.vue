@@ -29,7 +29,7 @@ export default {
     }
 
     onMounted(() => {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'ws://localhost:3000'
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
       const socket = io(backendUrl, {
         withCredentials: true,
       })
