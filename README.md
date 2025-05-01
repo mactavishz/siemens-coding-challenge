@@ -46,7 +46,7 @@ This repository contains a demo application for the Siemens coding challenge. Th
 │   ├── src/                # Source code
 │   │   ├── apis/           # API client functions
 │   │   ├── assets/         # Static assets
-│   │   ├── components/     # Vue components
+│   │   ├── components/     # Vue components with unit tests
 │   │   └── main.ts         # Application entry point
 │   └── public/             # Public assets
 └── cypress/                # End-to-end tests
